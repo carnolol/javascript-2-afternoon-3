@@ -2,19 +2,13 @@
   Once you complete a problem, refresh ./SpecRunner.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
-
   You can refresh the page at any time to re-run all the tests.
-
   In this repo your job is to write functions to make each function call work properly.
-
   Here's an example of code that will be given to you:
-
   sayHi('Hi Katie', function(thingToSay){
     alert(thingToSay);
   });
-
   It would be your job to create the sayHi function:
-
   var sayHi = function(str, cb){
     cb(str);
   }
@@ -90,8 +84,13 @@ multiply(4, 3, function(answer){
 */
 
 function contains(arr, name, cb){
-  if(arr.name)
+  if(arr.includes(name)){
+    return cb(true)
+  } else {
+   cb(false)
+  }
 }
+
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -112,7 +111,17 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-//Code Here
+function uniq(arr, cb){
+  for(let i = 0; i < arr.length; i++){
+   for(let j = i + 1; j < arr.length; j++){
+     if(arr[i] === arr[j]){
+       arr.splice(j,1)
+     }
+   }
+  }
+  return cb(arr)
+ }
+ 
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
